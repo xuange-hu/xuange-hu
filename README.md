@@ -1,6 +1,6 @@
 # 轩哥 / Nexus
 
-**CS student @ 武汉科技大学 · 汽车安全 CTF（UDS / CAN / V2X / ECU 固件）+ AI agent 安全工具链**
+**CS student @ 武汉科技大学 · 汽车安全 CTF（UDS / CAN / V2X / ECU 固件）+ AI agent / 供应链安全工具链**
 
 I write **zero-dependency, deterministic security tools** — the kind you can drop
 into a scratch CI container with no network and no toolchain. Every finding
@@ -27,6 +27,7 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**kubeguard**](https://github.com/xuange-hu/kubeguard) | Kubernetes 清单审计 · **37 规则 · 跨资源分析** | kube-linter 3.5k★ 是 Go 且只看单对象；K8s 默认全通，风险在对象之间 |
 | [**layerlint**](https://github.com/xuange-hu/layerlint) | Dockerfile 审计 · **唯一建模 stage→layer** 的那个 | hadolint 12.5k★ 只看指令清单，`RUN rm -rf` 删不掉前一层 |
 | [**pcaplens**](https://github.com/xuange-hu/pcaplens) | pcap / pcapng 解析 + CLI + MCP | 不用 tshark；上下文预算一等公民，每条结论带报文号与字节偏移 |
+| [**sbomkit**](https://github.com/xuange-hu/sbomkit) | 供应链体检 · SBOM + **SPDX 许可证表达式求解** + PR 门禁 diff | 许可证是表达式不是字符串：`(MIT OR GPL-3.0-only)` 可以选 MIT，子串匹配的工具会误报 |
 
 ## Vehicle security（起点项目 · 1★）
 
