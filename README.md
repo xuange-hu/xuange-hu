@@ -28,7 +28,7 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**layerlint**](https://github.com/xuange-hu/layerlint) | Dockerfile 审计 · **唯一建模 stage→layer** 的那个 | hadolint 12.5k★ 只看指令清单，`RUN rm -rf` 删不掉前一层 |
 | [**pcaplens**](https://github.com/xuange-hu/pcaplens) | pcap / pcapng 解析 + CLI + MCP | 不用 tshark；上下文预算一等公民，每条结论带报文号与字节偏移 |
 | [**sbomkit**](https://github.com/xuange-hu/sbomkit) | 供应链体检 · SBOM + **SPDX 许可证表达式求解** + PR 门禁 diff | 许可证是表达式不是字符串：`(MIT OR GPL-3.0-only)` 可以选 MIT，子串匹配的工具会误报 |
-| [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露 |
+| [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁 · GitHub Action** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露；Action 一行接入、不装任何依赖 |
 
 ## Vehicle security（起点项目 · 1★）
 
