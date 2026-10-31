@@ -30,6 +30,12 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**sbomkit**](https://github.com/xuange-hu/sbomkit) | 供应链体检 · SBOM + **SPDX 许可证表达式求解** + PR 门禁 diff | 许可证是表达式不是字符串：`(MIT OR GPL-3.0-only)` 可以选 MIT，子串匹配的工具会误报 |
 | [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁 · GitHub Action** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露；Action 一行接入、不装任何依赖 |
 
+## API contract security
+
+| Repo | What it is | Why it exists |
+|---|---|---|
+| [**specvet**](https://github.com/xuange-hu/specvet) | OpenAPI / Swagger **安全审查** · 36 规则 · 全部映射 OWASP API Top 10 2023 | Spectral 3.2k★ / Redocly / vacuum 管的是风格；第二遍扫描看的是关系：某个 path 的 GET 有认证而 DELETE 没有 |
+
 ## Vehicle security（起点项目 · 1★）
 
 | Repo | What it is |
@@ -64,4 +70,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-10-29 · 14 repositories</sub>
+<sub>最后更新：2026-11-01 · 18 repositories</sub>
