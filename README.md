@@ -31,6 +31,12 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁 · GitHub Action** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露；Action 一行接入、不装任何依赖 |
 | [**tfguard**](https://github.com/xuange-hu/tfguard) | Terraform / OpenTofu 审计 · **40 规则 · 自写 HCL2 解析器 · 凭据溯源 · 跨块关系** | tfsec 7k★ / terrascan 5.2k★ 是 Go，checkov 9.1k★ 是 Python 但带一车依赖；零依赖赛道空着。`password = var.db_password` 的密钥其实在变量那一行 |
 
+## Transport & certificate security
+
+| Repo | What it is | Why it exists |
+|---|---|---|
+| [**tlslint**](https://github.com/xuange-hu/tlslint) | TLS / X.509 审计 · **43 规则 · 自写 DER 解析器 · 本地实验室服务器** | testssl.sh 9.3k★ 是 shell、sslyze 3.8k★ 要 cryptography + nassl、sslscan 2.6k★ 是 C；零依赖 Python 赛道空着。每条结论带字段与值；`tlslint demo` 不联网跑出 37/43 条规则 |
+
 ## API contract security
 
 | Repo | What it is | Why it exists |
