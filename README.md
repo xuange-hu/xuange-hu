@@ -29,6 +29,7 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**pcaplens**](https://github.com/xuange-hu/pcaplens) | pcap / pcapng 解析 + CLI + MCP | 不用 tshark；上下文预算一等公民，每条结论带报文号与字节偏移 |
 | [**sbomkit**](https://github.com/xuange-hu/sbomkit) | 供应链体检 · SBOM + **SPDX 许可证表达式求解** + PR 门禁 diff | 许可证是表达式不是字符串：`(MIT OR GPL-3.0-only)` 可以选 MIT，子串匹配的工具会误报 |
 | [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁 · GitHub Action** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露；Action 一行接入、不装任何依赖 |
+| [**tfguard**](https://github.com/xuange-hu/tfguard) | Terraform / OpenTofu 审计 · **40 规则 · 自写 HCL2 解析器 · 凭据溯源 · 跨块关系** | tfsec 7k★ / terrascan 5.2k★ 是 Go，checkov 9.1k★ 是 Python 但带一车依赖；零依赖赛道空着。`password = var.db_password` 的密钥其实在变量那一行 |
 
 ## API contract security
 
@@ -60,7 +61,8 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 ## 设计信条
 
 1. **证据式输出** —— 每条结论必须给报文号 / 文件行号 / 原始字节。结论可复核，而不是被信任。
-2. **零依赖优先** —— 能在标准库里做的解析（DBC、X.509、pcap、YAML）就不引第三方包。
+5. **关系比单点更值钱** —— 单看一个对象看不出的风险，第三遍扫描才看得出来：安全组对外开放，且公网实例正落在它里面。
+2. **零依赖优先** —— 能在标准库里做的解析（DBC、X.509、pcap、YAML、**HCL2**）就不引第三方包。
 3. **确定性** —— 能写规则就不调 LLM；同样的输入必须给同样的结论。
 4. **CI 一等公民** —— 每个工具都有 `--fail-on` 退出码 + SARIF，进 GitHub Code Scanning。
 
@@ -70,4 +72,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-01 · 18 repositories</sub>
+<sub>最后更新：2026-11-02 · 19 repositories</sub>
