@@ -31,6 +31,12 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁 · GitHub Action** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露；Action 一行接入、不装任何依赖 |
 | [**tfguard**](https://github.com/xuange-hu/tfguard) | Terraform / OpenTofu 审计 · **40 规则 · 自写 HCL2 解析器 · 凭据溯源 · 跨块关系** | tfsec 7k★ / terrascan 5.2k★ 是 Go，checkov 9.1k★ 是 Python 但带一车依赖；零依赖赛道空着。`password = var.db_password` 的密钥其实在变量那一行 |
 
+## Cloud identity security
+
+| Repo | What it is | Why it exists |
+|---|---|---|
+| [**iamlint**](https://github.com/xuange-hu/iamlint) | AWS IAM 策略审计 · **49 规则 · 两遍扫描** · 自带 lab | parliament 1.2k★ / cloudsploit 3.6k★ 都是单条 statement 视角；真正丢账号的那条结论活在两条 statement **之间**（`iam:CreateAccessKey` + `iam:AttachUserPolicy`）。`--bundle` 跨文件合并成一个 principal |
+
 ## Transport & certificate security
 
 | Repo | What it is | Why it exists |
@@ -78,4 +84,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-02 · 19 repositories</sub>
+<sub>最后更新：2026-11-03 · 21 repositories</sub>
