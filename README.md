@@ -49,6 +49,12 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 |---|---|---|
 | [**specvet**](https://github.com/xuange-hu/specvet) | OpenAPI / Swagger **安全审查** · 36 规则 · 全部映射 OWASP API Top 10 2023 | Spectral 3.2k★ / Redocly / vacuum 管的是风格；第二遍扫描看的是关系：某个 path 的 GET 有认证而 DELETE 没有 |
 
+## 输入层 / 解析层安全
+
+| Repo | What it is | Why it exists |
+|---|---|---|
+| [**redoslint**](https://github.com/xuange-hu/redoslint) | ReDoS 审计 · **9 规则 · 自写正则解析器 · 字符集代数** · CLI + SARIF + 6 个 MCP 工具 | regexploit 是手工 REPL、recheck 要 JVM/Node、rxxr2 已停更、npm 的 `redos` 只读 JS；零依赖 Python 扫描器赛道空着。形状匹配会同时报 `(a+)+` 和线性的 `(ab+)+`，这里比的是**字符集能不能重叠** |
+
 ## Vehicle security（起点项目 · 1★）
 
 | Repo | What it is |
@@ -73,10 +79,10 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 ## 设计信条
 
 1. **证据式输出** —— 每条结论必须给报文号 / 文件行号 / 原始字节。结论可复核，而不是被信任。
-5. **关系比单点更值钱** —— 单看一个对象看不出的风险，第三遍扫描才看得出来：安全组对外开放，且公网实例正落在它里面。
-2. **零依赖优先** —— 能在标准库里做的解析（DBC、X.509、pcap、YAML、**HCL2**）就不引第三方包。
-3. **确定性** —— 能写规则就不调 LLM；同样的输入必须给同样的结论。
-4. **CI 一等公民** —— 每个工具都有 `--fail-on` 退出码 + SARIF，进 GitHub Code Scanning。
+2. **关系比单点更值钱** —— 单看一个对象看不出的风险，第三遍扫描才看得出来：安全组对外开放，且公网实例正落在它里面。
+3. **零依赖优先** —— 能在标准库里做的解析（DBC、X.509、pcap、YAML、**HCL2**、正则）就不引第三方包。
+4. **确定性** —— 能写规则就不调 LLM；同样的输入必须给同样的结论。
+5. **CI 一等公民** —— 每个工具都有 `--fail-on` 退出码 + SARIF，进 GitHub Code Scanning。
 
 ## Contact
 
@@ -84,4 +90,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-03 · 21 repositories</sub>
+<sub>最后更新：2026-11-07 · 22 repositories</sub>
