@@ -43,6 +43,7 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | Repo | What it is | Why it exists |
 |---|---|---|
 | [**tlslint**](https://github.com/xuange-hu/tlslint) | TLS / X.509 审计 · **43 规则 · 自写 DER 解析器 · 本地实验室服务器** | testssl.sh 9.3k★ 是 shell、sslyze 3.8k★ 要 cryptography + nassl、sslscan 2.6k★ 是 C；零依赖 Python 赛道空着。每条结论带字段与值；`tlslint demo` 不联网跑出 37/43 条规则 |
+| [**headervet**](https://github.com/xuange-hu/headervet) | HTTP 安全响应头审计 · **36 规则 · 三遍扫描 · 配置 + dump + live 三种输入** | securityheaders.com 只给一个响应打分；真正出事的两种情况它都看不见——`proxy_hide_header` 把应用设的头剥了（HDV203）、nginx location 里第一个 `add_header` 让继承的安全头全部失效（HDV201）。nginx / Apache / Caddy / Express 全读，零依赖，SARIF + MCP |
 
 ## API contract security
 
@@ -91,4 +92,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-09 · 24 repositories</sub>
+<sub>最后更新：2026-11-10 · 25 repositories</sub>
