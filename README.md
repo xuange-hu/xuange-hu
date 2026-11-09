@@ -26,6 +26,7 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 |---|---|---|
 | [**kubeguard**](https://github.com/xuange-hu/kubeguard) | Kubernetes 清单审计 · **37 规则 · 跨资源分析** | kube-linter 3.5k★ 是 Go 且只看单对象；K8s 默认全通，风险在对象之间 |
 | [**layerlint**](https://github.com/xuange-hu/layerlint) | Dockerfile 审计 · **唯一建模 stage→layer** 的那个 | hadolint 12.5k★ 只看指令清单，`RUN rm -rf` 删不掉前一层 |
+| [**docklint**](https://github.com/xuange-hu/docklint) | 容器构建审计 · **三遍扫描：Dockerfile + compose + .dockerignore** · 38 规则 | layerlint 看的是层叠上去的东西（`RUN rm` 删不掉前一层）；docklint 看的是三个文件之间的缝隙：被 `.dockerignore` 排掉的 COPY、compose 用 `user: root` 撤销的降权、烤进 layer 又被挂载盖住的密钥。在 docker/awesome-compose 的 74 个文件上校准，因此删过自己的规则 |
 | [**pcaplens**](https://github.com/xuange-hu/pcaplens) | pcap / pcapng 解析 + CLI + MCP | 不用 tshark；上下文预算一等公民，每条结论带报文号与字节偏移 |
 | [**sbomkit**](https://github.com/xuange-hu/sbomkit) | 供应链体检 · SBOM + **SPDX 许可证表达式求解** + PR 门禁 diff | 许可证是表达式不是字符串：`(MIT OR GPL-3.0-only)` 可以选 MIT，子串匹配的工具会误报 |
 | [**secretsweep**](https://github.com/xuange-hu/secretsweep) | 凭据泄露扫描 · **86 规则 · 占位符分级 · 基线门禁 · GitHub Action** | gitleaks 30k★ / trufflehog 28k★ 都是 Go，Python 侧 detect-secrets 带依赖；示例密钥不等于真泄露；Action 一行接入、不装任何依赖 |
@@ -90,4 +91,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-07 · 22 repositories</sub>
+<sub>最后更新：2026-11-09 · 24 repositories</sub>
