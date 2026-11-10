@@ -51,6 +51,12 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 |---|---|---|
 | [**specvet**](https://github.com/xuange-hu/specvet) | OpenAPI / Swagger **安全审查** · 36 规则 · 全部映射 OWASP API Top 10 2023 | Spectral 3.2k★ / Redocly / vacuum 管的是风格；第二遍扫描看的是关系：某个 path 的 GET 有认证而 DELETE 没有 |
 
+## Mobile / Android
+
+| Repo | What it is | Why it exists |
+|---|---|---|
+| [**manifestvet**](https://github.com/xuange-hu/manifestvet) | Android 清单安全审计 · **40 规则 · 自写 AXML 解析器** · SARIF + 7 个 MCP 工具 | MobSF 是一整套 Django 服务 + JADX、apkleaks 要 jadx；而编译后的清单里**根本没有属性名**（`android:exported` 就是 `0x01010010`），名字只能靠 resource map 反查，两种对齐都在野外存在，选错会把每个属性错标成邻居且不报错。这里用「池里的字符串」和「表里的名字」必须是同一个词来判定；源码 XML 与 APK 走同一套规则 |
+
 ## 输入层 / 解析层安全
 
 | Repo | What it is | Why it exists |
@@ -89,7 +95,7 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 ## Contact
 
 - GitHub: [@xuange-hu](https://github.com/xuange-hu)
-- 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全
+- 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全、Android 移动端
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-10 · 25 repositories</sub>
+<sub>最后更新：2026-11-11 · 26 repositories</sub>
