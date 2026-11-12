@@ -33,6 +33,12 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 | [**tfguard**](https://github.com/xuange-hu/tfguard) | Terraform / OpenTofu 审计 · **40 规则 · 自写 HCL2 解析器 · 凭据溯源 · 跨块关系** | tfsec 7k★ / terrascan 5.2k★ 是 Go，checkov 9.1k★ 是 Python 但带一车依赖；零依赖赛道空着。`password = var.db_password` 的密钥其实在变量那一行 |
 | [**cronlint**](https://github.com/xuange-hu/cronlint) | crontab 安全审计 · **35 规则 · 三遍扫描 · 逐行形状判定** · 零依赖 · SARIF + MCP | crontab 配错不报错，只在错误的时间（或以错误的用户）跑：六字段有三种读法（cronie 前置秒 / Quartz 尾部年 / `/etc/crontab` user 列），DOM+DOW 同时限制是「或」不是「与」，`--password=` 在 `ps` 里全程可见。每条 finding 带字节偏移，`cronlint demo` 一次跑出 35/35 规则覆盖 |
 
+## Linux host security
+
+| Repo | What it is | Why it exists |
+|---|---|---|
+| [**unitlint**](https://github.com/xuange-hu/unitlint) | systemd 单元审计 · **44 规则 · drop-in 溯源 · 零依赖** · 读 rootfs / 容器层 | `systemctl cat` 把基础文件和 drop-in 依次打印，**从不打印结果**；`systemd-analyze security` 评的是运行中的单元，不给是哪个文件设的。于是最常见的现实是：基础文件写着 `ProtectSystem=strict`，八个月后有人加了一个 `99-debug.conf` 把它设回 `no`，而所有 review 看的都还是基础文件。这里先做合并（搜索路径优先级、drop-in 文件名序、同名遮蔽、`/etc` 整体替换厂商单元），再审计结果，`unitlint why` 能指出「哪个文件的哪一行赢了」 |
+
 ## Cloud identity security
 
 | Repo | What it is | Why it exists |
@@ -99,4 +105,4 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 - 方向：汽车安全 CTF（UDS/CAN/V2X/ECU 固件）、AI agent 安全、供应链安全、Android 移动端
 - 装备：Kali + 水星 MW150US V4.0（RTL8188CUS，可监听抓包、不支持注入）
 
-<sub>最后更新：2026-11-11 · 27 repositories</sub>
+<sub>最后更新：2026-11-13 · 30 repositories</sub>
