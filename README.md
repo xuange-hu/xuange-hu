@@ -39,6 +39,8 @@ vibe, because a scanner you cannot verify is a scanner you will switch off.
 |---|---|---|
 | [**unitlint**](https://github.com/xuange-hu/unitlint) | systemd 单元审计 · **44 规则 · drop-in 溯源 · 零依赖** · 读 rootfs / 容器层 | `systemctl cat` 把基础文件和 drop-in 依次打印，**从不打印结果**；`systemd-analyze security` 评的是运行中的单元，不给是哪个文件设的。于是最常见的现实是：基础文件写着 `ProtectSystem=strict`，八个月后有人加了一个 `99-debug.conf` 把它设回 `no`，而所有 review 看的都还是基础文件。这里先做合并（搜索路径优先级、drop-in 文件名序、同名遮蔽、`/etc` 整体替换厂商单元），再审计结果，`unitlint why` 能指出「哪个文件的哪一行赢了」 |
 
+| [**sudolint**](https://github.com/xuange-hu/sudolint) | sudoers 安全审计 · **41 规则 · 三遍扫描（行 / 别名 / last-match-wins） · 零依赖** · SARIF + MCP | sudoers 不是声明式白名单：`NOPASSWD: PAGER_CMDS` 看着无害，直到别名里装着 `less`（能起 root shell）；`NOPASSWD: a, b` 标签级联到后面所有命令；同用户同主机的后一行规范静默覆盖前一行。这里展开每个 Cmnd_Alias 按展开体分类、计算每条命令实际生效的标签、再比对行与行的覆盖关系，`sudolint demo` 现场跑出 41/41 规则覆盖 |
+
 ## Cloud identity security
 
 | Repo | What it is | Why it exists |
